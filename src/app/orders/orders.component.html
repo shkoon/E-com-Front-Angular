@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table" *ngIf="orders">
+        <thead>
+            <tr>
+                <th>Bill Id</th>
+                <th>Customer Id</th>
+                <th>Bill Date</th>
+       
+
+            </tr>
+        </thead>
+        <tbody>
+           <tr *ngFor="let o of orders._embedded.bills" >
+            <td>{{o.id}}</td>
+            <td>{{o.customerId}}</td>
+            <td>{{o.billDate|date:'dd/MM/yyyy'}}</td>
+            <td>
+                <button class="btn btn-success" (click)="getProductItems(o.id)">Product Items</button>
+            </td>
+           </tr>
+        </tbody>
+
+    </table>
+
+</div>

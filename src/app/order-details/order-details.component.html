@@ -1,0 +1,66 @@
+<div class="container" *ngIf="porductsItems">
+
+   <div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Order Id: {{porductsItems.id}}
+            </div>
+            <div class="card-body text-sm-start">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        Bill Id:
+                        {{porductsItems.id}}
+                    </li>
+                    <li class="list-group-item">
+                        Date:
+                        {{porductsItems.billDate|date:"dd/MM/yyyy"}}
+                    </li>
+                    <li class="list-group-item">
+                        Customer Id:
+                        {{porductsItems.customer.email}}
+                    </li>
+                    <li class="list-group-item">
+                        Customer Id:
+                        {{porductsItems.customer.id}}
+                    </li>
+                    <li class="list-group-item">
+                        Customer Id:
+                        {{porductsItems.customer.name}}
+                    </li>
+                    <li class="list-group-item">
+                        Customer Id:
+                        {{porductsItems.customer.email}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Product Items
+            </div>
+            <div class="card-body">
+                <table class="table">
+                   <thead class="table-dark"> <tr>
+                    <th>productId</th><th>Name</th><th>Price</th><th>Quantity</th><th>Discount</th><th>Amount</th>
+                </tr></thead>
+                <tbody>
+                    <tr *ngFor="let item of porductsItems.productItemList">
+                        <td>{{item.productId}}</td>
+                        <td>{{item.product.name}}</td>
+                        <td class="text-end">{{item.price|number:'.2'}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td class="text-end">{{item.discount|number:'.2'}}</td>
+                        <td class="text-end">{{item.amount|number:'.2'}}</td>
+                    </tr>
+                    <tr class="table-dark"><td class="text-end" colspan="5">Totale:</td><td class="text-end">{{porductsItems.totale}}</td></tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   </div>
+
+</div>
